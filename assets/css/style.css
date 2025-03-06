@@ -13,7 +13,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
@@ -58,7 +57,7 @@ nav {
 }
 
 .btn {
-    border-radius: 15px;
+    border-radius: 25px;
     text-transform: uppercase;
     color: #fff;
     font-size: 13px; /* Aumenta o tamanho do texto */
@@ -94,9 +93,8 @@ nav {
 }
 
 /* Seção principal */
-main {
-    margin-top: 60px; /* Ajuste para não ficar atrás da barra de navegação */
-    padding: 1rem;
+main {/* Ajuste para não ficar atrás da barra de navegação */
+    margin: 0;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -219,9 +217,9 @@ footer {
     border: 1px solid red;
     background-color: #67a800;
     color: white;
-    padding: 1.5rem;
+    padding: 0.8rem;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -2,272 +2,309 @@
    Em caso de duvida não mexa no codigo abaixo !! */
 
 
-   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
-   * {
-       margin: 0px;
-       padding: 0;
-       box-sizing: border-box;
-   }
-   body {
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #edede9;
+}
 
-       font-family: 'Montserrat', sans-serif;
-       font-size: 16px; /* Aumenta o tamanho do texto */
-       background-color:#edede9 ;
-   }
-   .container-login { 
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       height: 92vh;
-       background-color: #edede9;
-   }
-   .content { /* Conteudo de dentro do quadrado verde   */
-        margin-top: 80px;
-       background-color: #fff;
-       border-radius: 15px;
-       width: 960px;
-       height: 390px;
-       justify-content: space-between;
-       align-items: center;
-       position: relative;
-   }
-   .content::before {
-       content: "";
-       position: absolute;
-       background-color: #67a800;;
-       width: 50%; /* Aumentar um pouco a largura da aba verde */
-       height: 100%;
-       border-top-left-radius: 15px;
-       border-bottom-left-radius: 15px;
-       border-top-right-radius: 15px;
-       border-bottom-right-radius: 15px;
-       left: 0%;
-   }
-   .title {
-       font-size: 32px; /* Aumenta o tamanho do texto */
-       text-transform: capitalize;  
-   }
-   .title-primary {
-       color: #fff;
-       text-align: center; /* Centralizar o texto */
-   }
-   .title-second {     /*    */
-        margin-top: 120px;
-       color: #67a800;;
-       text-align: center; /* Centralizar o texto */
-   }
-   .description {
-       font-size: 16px; /* Aumenta o tamanho do texto */
-       font-weight: 300;
-       line-height: 30px;
-   }
-   .description-primary {
-       color: #fff;
-       text-align: center; /* Centralizar o texto */
-   }
-   .description-second {
-       color: #7f8c8d;
-       text-align: center; /* Centralizar o texto */
-   }
-   .btn {
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #edede9;
+}
+
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92vh;
+    background-color: #edede9;
+}
+.content {
     border: 1px solid red;
-       border-radius: 15px;
-       text-transform: uppercase;
-       color: #fff;
-       font-size: 14px; /* Aumenta o tamanho do texto */
-       padding: 10px 15px; /* Aumenta o padding */
-       cursor: pointer;
-       font-weight: bold;
-       width: 200px; /* Aumenta a largura do botão */
-       align-self: center;
-       border: none;
-       margin: 10px 10px
-   }
-   .btn-primary {
-       background-color: transparent;
-       border: 1px solid #fff;
-       transition: background-color .5s;
-   }
-   .btn-primary:hover {
-       background-color: #ffffff;
-       color: #67a800;
-       border: #67a800;
-   }
-   .btn-second {
-       background-color: #67a800;
-       border: 1px solid #67a800;
-       transition: background-color .5s;
-       margin-bottom: 120px;
-   }
-   .btn-second:hover {
-       background-color: #fff;
-       border: 1px solid #67a800;;
-       color: #67a800;
-   }
-   .first-content {
-       display: flex;
-   }
-   .first-content .second-column {
-       z-index: 11;
-   }
-   .first-column { /* Primeira coluna */
-       text-align: center;
-       width: 60%;
-       z-index: 10;
-       display: flex;
-       flex-direction: column;
-       justify-content: center; /* Centralizar verticalmente */
-       align-items: center; /* Centralizar horizontalmente */
-   }
-   .second-column {    /* Segunda coluna */
-       width: 60%;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-       justify-content: center; /* Centralizar verticalmente */
-   }
-   
-               /* Isso aqui serve para termos os btns de login com o face, google e linkedin(nem precisamos desse do linkedin)
-                  Tambem serve para centralizar e ter as cores do site assim que passamos o mouse em cima */
-   .social-media {
-       margin: 1rem 0;
-   }
-   .link-social-media:not(:first-child){
-       margin-left: 10px;
-   }
-   .link-social-media .item-social-media {
-       transition: background-color .5s;
-   }
-   .link-social-media:hover .item-social-media{
-       background-color: #67a800;;
-       color: #fff;
-       border-color: #67a800;;
-   }
-   .list-social-media {
-       display: flex;
-       list-style-type: none;
-   }
-   .item-social-media {
-       border: 1px solid #bdc3c7;
-       border-radius: 50%;
-       width: 35px;
-       height: 35px;
-       line-height: 35px;
-       text-align: center;
-       color: #67a800;
-   }
-   
-                   /* Formularios de log In e Log Out */
-   .form {
-       display: flex;
-       flex-direction: column;
-       width: 55%;
-   }
-   .form input {
-       height: 45px;
-       width: 100%;
-       border: none;
-       background-color: #ecf0f1;
-       margin-left: 10px;
-       box-shadow: 0 0 0 0;
-       border: 0 none;
-       outline: 0;
-   }
-   .label-input{
-       border: 1px solid red;
-       background-color: #ecf0f1;
-       display: flex;
-       align-items: center;
-       margin: 5px;
-       border: none;
-       padding: 2px 1px;
-       border-radius: 5px;
-   }
-   .icon-modify{
-       color: black;
-       margin: 5px;
-   }
-   .second-content{
-       position: absolute;
-       display: flex;
-   }
-   .second-content .first-column{
-       order: 2;
-       z-index: -1;
-   }
-   .second-content .second-column{
-       order: 1;
-       z-index: -1;
-   }
-   .password{
-       color: #67a900;
-       font-size: 14px;
-   }
-   
-   /* Isso aqui serve de manipulação para o movimento do quadrado 
-      Assim que o btn sofrer a açao isso aqui entra em cena 
-      Serve para tirar o conteúdo ao lado do botão!! */
-   .sign-in-js .first-content .first-column {
-       z-index: -1;
-   }
-   .sign-in-js .second-content .second-column {
-       z-index: 11;
-   }
-   .sign-in-js .second-content .first-column {
-       z-index: 13;
-   }
-   .sign-in-js .content::before {
-       left: 50%; /* Ajustar a posição final da aba verde */
-       border-top-left-radius: 15px;
-       border-bottom-left-radius: 15px;
-       border-top-right-radius: 15px;
-       border-bottom-right-radius: 15px;
-       animation: slidein 1s; 
-       z-index: 12;
-   }
-   .sign-up-js .content::before {
-       animation: slideout 1s; 
-       z-index: 12;
-   }
-   .sign-up-js .second-content .first-column,
-   .sign-up-js .second-content .second-column {
-       z-index: -1;
-   }
-   .sign-up-js .first-content .second-column {
-       z-index: 11;
-   }
-   .sign-up-js .first-content .first-column {
-       z-index: 13;    
-   }
-   /* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
-   .sign-in-js .first-content .second-column {
-       z-index: -1;
-       position: relative;
-       animation: 1.3s; 
-   }
-   .sign-up-js .second-content .second-column {
-       position: relative;
-       z-index: -1;
-       animation: 1.3s; 
-   }
-   /* animação css */ 
-   @keyframes slidein {        
-       from{
-           left: 0;
-           width: 50%; /* Aumentar um pouco a largura da aba verde */
-       }
-       to{
-           left: 50%; /* Ajustar a posição final da aba verde */
-           width: 50%; /* Aumentar um pouco a largura da aba verde */
-       }
-   }
-   @keyframes slideout {
-       from{
-           left: 50%; /* Ajustar a posição inicial da aba verde */
-           width: 50%; /* Aumentar um pouco a largura da aba verde */
-       }
-       to{
-           left: 0%;
-           width: 50%; /* Aumentar um pouco a largura da aba verde */
-       }
-   }
+    margin-top: 60px;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 960px;
+    height: 480px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+.content::before {
+    border: 1px solid red;
+    content: "";
+    position: absolute;
+    background-color: #67a800;
+    width: 480px;
+    height: 480px;
+    border-radius: 15px;
+    left: 0;
+}
+.title {
+    font-size: 32px;
+    text-transform: capitalize;
+}
+.title-primary {
+    color: #fff;
+    text-align: center;
+}
+.title-second {
+    margin-top: 120px;
+    color: #67a800;
+    text-align: center;
+}
+.description {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.description-primary {
+    color: #fff;
+    text-align: center;
+}
+.description-second {
+    color: #7f8c8d;
+    text-align: center;
+}
+.btn {
+    border-radius: 25px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 200px;
+    align-self: center;
+    border: none;
+    margin: 10px 10px;
+}
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #67a800;
+    border: #67a800;
+}
+.btn-second {
+    background-color: #67a800;
+    border: 1px solid #67a800;
+    transition: background-color .5s;
+    margin-bottom: 120px;
+}
+.btn-second:hover {
+    background-color: #fff;
+    border: 1px solid #67a800;
+    color: #67a800;
+}
+.first-content {
+    display: flex;
+}
+.first-content .second-column {
+    z-index: 11;
+}
+.first-column {
+    text-align: center;
+    width: 60%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.second-column {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.social-media {
+    margin: 1rem 0;
+}
+.link-social-media:not(:first-child) {
+    margin-left: 10px;
+}
+.link-social-media .item-social-media {
+    transition: background-color .5s;
+}
+.link-social-media:hover .item-social-media {
+    background-color: #67a800;
+    color: #fff;
+    border-color: #67a800;
+}
+.list-social-media {
+    display: flex;
+    list-style-type: none;
+}
+.item-social-media {
+    border: 1px solid #bdc3c7;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #67a800;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+    margin-left: 10px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+.label-input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    border: none;
+    padding: 2px 1px;
+    border-radius: 5px;
+}
+.icon-modify {
+    color: black;
+    margin: 5px;
+}
+.second-content {
+    position: absolute;
+    display: flex;
+}
+.second-content .first-column {
+    order: 2;
+    z-index: -1;
+}
+.second-content .second-column {
+    order: 1;
+    z-index: -1;
+}
+.password {
+    color: #67a900;
+    font-size: 14px;
+}
+.sign-in-js .first-content .first-column {
+    z-index: -1;
+}
+.sign-in-js .second-content .second-column {
+    z-index: 11;
+}
+.sign-in-js .second-content .first-column {
+    z-index: 13;
+}
+.sign-in-js .content::before {
+    left: 50%;
+    border-radius: 15px;
+    animation: slidein 1s;
+    z-index: 12;
+}
+.sign-up-js .content::before {
+    animation: slideout 1s;
+    z-index: 12;
+}
+.sign-up-js .second-content .first-column,
+.sign-up-js .second-content .second-column {
+    z-index: -1;
+}
+.sign-up-js .first-content .second-column {
+    z-index: 11;
+}
+.sign-up-js .first-content .first-column {
+    z-index: 13;
+}
+.sign-in-js .first-content .second-column {
+    z-index: -1;
+    position: relative;
+    animation: 1.3s;
+}
+.sign-up-js .second-content .second-column {
+    position: relative;
+    z-index: -1;
+    animation: 1.3s;
+}
+@keyframes slidein {
+    from {
+        left: 0;
+        width: 50%;
+    }
+    to {
+        left: 50%;
+        width: 50%;
+    }
+}
+@keyframes slideout {
+    from {
+        left: 50%;
+        width: 50%;
+    }
+    to {
+        left: 0;
+        width: 50%;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        height: auto;
+        padding: 20px;
+    }
+    .container-login {
+        height: auto;
+        padding: 20px;
+    }
+    .content {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    .content::before {
+        width: 100%;
+        height: 240px;
+        border-radius: 15px 15px 0 0;
+    }
+    .first-column, .second-column {
+        width: 100%;
+    }
+    .title {
+        font-size: 24px;
+    }
+    .description {
+        font-size: 14px;
+    }
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+    .btn-second {
+        margin-bottom: 20px;
+    }
+    .form {
+        width: 90%;
+    }
+    .form input {
+        margin-left: 0;
+    }
+    .label-input {
+        margin: 5px 0;
+    }
+}
