@@ -4,13 +4,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+    
 }
 
 /* Barra de navegação */
 nav {
     background-color: #67a800;
     color: white;
-    padding: 1rem;
+    padding: 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,21 +36,29 @@ nav {
     align-items: center;
 }
 
-
 .nav-links {
     display: flex;
+    text-align: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
+
 .nav-links a {
+
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    padding: 14px 35px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-login {
+    text-indent: -16px;
 }
 
 .nav-links a:hover {
-    color: #3498db;
+    color: #67a800;
 }
 
 .search-bar {
@@ -66,7 +75,9 @@ nav {
 main {
     margin-top: 80px; /* Espaço pra navbar fixa */
     padding: 2rem;
+    min-height: calc(100vh - 80px - 1.5rem); /* Altura mínima para empurrar o rodapé para baixo */
 }
+/* Background Parallax */
 
 .events-section {
     max-width: 1200px;
@@ -77,6 +88,19 @@ main {
 .events-section h1 {
     color: #2c3e50;
     margin-bottom: 1.5rem;
+}
+
+.btn-link {
+    color: rgb(255, 255, 255);
+    background-color: #67a800;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: aqua;
+    background-color: #1483f1;
 }
 
 .event-card {
@@ -110,6 +134,7 @@ main {
 
 /* Rodapé */
 footer {
+    border: 1px solid red;
     background-color: #67a800;
     color: white;
     padding: 1.5rem;

@@ -70,17 +70,18 @@
        text-align: center; /* Centralizar o texto */
    }
    .btn {
+    border: 1px solid red;
        border-radius: 15px;
        text-transform: uppercase;
        color: #fff;
        font-size: 14px; /* Aumenta o tamanho do texto */
-       padding: 18px 35px; /* Aumenta o padding */
+       padding: 10px 15px; /* Aumenta o padding */
        cursor: pointer;
        font-weight: bold;
        width: 200px; /* Aumenta a largura do botão */
        align-self: center;
        border: none;
-       margin-top: 1rem;
+       margin: 10px 10px
    }
    .btn-primary {
        background-color: transparent;
@@ -88,19 +89,20 @@
        transition: background-color .5s;
    }
    .btn-primary:hover {
-       background-color: #fff;
-       color: #67a800;;
+       background-color: #ffffff;
+       color: #67a800;
+       border: #67a800;
    }
    .btn-second {
-       background-color: #67a800;;
-       border: 1px solid #67a800;;
+       background-color: #67a800;
+       border: 1px solid #67a800;
        transition: background-color .5s;
        margin-bottom: 120px;
    }
    .btn-second:hover {
        background-color: #fff;
        border: 1px solid #67a800;;
-       color: #67a800;;
+       color: #67a800;
    }
    .first-content {
        display: flex;
