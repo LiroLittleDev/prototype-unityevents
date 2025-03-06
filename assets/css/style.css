@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    
 }
 
 /* Barra de navegação */
@@ -43,9 +42,7 @@ nav {
     gap: 1rem;
 }
 
-
 .nav-links a {
-
     color: white;
     text-decoration: none;
     padding: 14px 35px;
@@ -77,7 +74,6 @@ main {
     padding: 2rem;
     min-height: calc(100vh - 80px - 1.5rem); /* Altura mínima para empurrar o rodapé para baixo */
 }
-/* Background Parallax */
 
 .events-section {
     max-width: 1200px;
@@ -166,7 +162,6 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .footer-links a, .footer-social a {
@@ -176,7 +171,7 @@ footer {
 }
 
 .footer-links a:hover, .footer-social a:hover {
-    color: white; 
+    color: white;
     text-decoration: underline;
 }
 
@@ -191,4 +186,94 @@ footer {
     padding-top: 1rem;
     width: 100%;
     text-align: center;
+}
+
+/* Barra de navegação responsiva */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    .logo-nome {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .nav-links a, .nav-links button {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 1rem;
+    }
+
+   /*  AINDA SERÁ IMPLEMENTADO A AREA DE PESQUISA
+   .search-bar {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }*/
+    
+}
+
+
+/* Seção principal responsiva */
+@media (max-width: 768px) {
+    main {
+        margin-top: 200px;
+        padding: 1rem;
+    }
+
+    .events-section {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .event-card {
+        margin-bottom: 1rem;
+    }
+
+    .event-card img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+}
+
+/* Rodapé responsivo */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content div {
+        padding: 0.5rem 0;
+        text-align: center;
+        border: 1px sold red;
+    }
+
+    .footer-links a {
+        align-items: center;
+    }
+    
+    .footer-social {
+        align-items: center;
+        font-size: 1rem; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-links a, .footer-social a {
+        margin: 5px 0px;
+        padding: 10px 30px;
+        border: 1px solid red;
+    }
+
+
 }
