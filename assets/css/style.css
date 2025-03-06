@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
@@ -10,7 +9,7 @@
 nav {
     background-color: #67a800;
     color: white;
-    padding: 1px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,11 +50,37 @@ nav {
 }
 
 .btn-login {
-    text-indent: -16px;
+    text-indent: -5px;
 }
 
 .nav-links a:hover {
     color: #67a800;
+}
+
+.btn {
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px; /* Aumenta o tamanho do texto */
+    padding: 10px 10px; /* Aumenta o padding */
+    cursor: pointer;
+    font-weight: bold;
+    width: 200px; /* Aumenta a largura do botão */
+    align-self: center;
+    border: none;
+    margin: 10px 10px
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: background-color .5s;
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #67a800;
+    border: #67a800;
 }
 
 .search-bar {
@@ -70,9 +95,51 @@ nav {
 
 /* Seção principal */
 main {
-    margin-top: 80px; /* Espaço pra navbar fixa */
-    padding: 2rem;
-    min-height: calc(100vh - 80px - 1.5rem); /* Altura mínima para empurrar o rodapé para baixo */
+    margin-top: 60px; /* Ajuste para não ficar atrás da barra de navegação */
+    padding: 1rem;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #47a353, #21a859);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.hero-section .btn {
+    background-color: #67a800;
+    width: 15%;
+    padding: 0.5rem 0.5rem;
+    font-size: 15px;
+    border: 1px solid white;
+}
+
+.hero-section .btn:hover {
+    background-color: #ffffff;
+    color: #67a800;
+    border: 1px solid #67a800;
+    transform: scale(1.05);
+}
+
+/* Filter Section */
+.filter-section {
+    background-color: #f8f9fa;
+}
+.filter-bar {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .events-section {
@@ -97,6 +164,15 @@ main {
 .btn-link:hover {
     color: aqua;
     background-color: #1483f1;
+}
+
+.filter-section {
+    background-color: #f8f9fa;
+}
+
+.filter-bar {
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .event-card {
@@ -126,6 +202,16 @@ main {
     margin-left: 10px;
     width: 150px;
     border-radius: 10px;
+}
+
+/* Efeito de subida nos cards */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Rodapé */
@@ -193,18 +279,22 @@ footer {
     nav {
         flex-direction: column;
         align-items: center;
-        padding: 0.5rem;
+        position: static; /* Nav não acompanha */
     }
 
     .logo-nome {
         margin-left: 0;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.1rem;
     }
 
     .nav-links {
         flex-direction: column;
         align-items: flex-start;
-        width: 100%;
+        width: 80%;
+    }
+
+    .btn-login {
+        text-indent: 0px;
     }
 
     .nav-links a, .nav-links button {
@@ -218,20 +308,39 @@ footer {
         width: 100%;
         margin-bottom: 0.5rem;
     }*/
-    
 }
 
 
 /* Seção principal responsiva */
 @media (max-width: 768px) {
     main {
-        margin-top: 200px;
+        padding: 0.0rem;
+        margin-top: -05px;
+    }
+
+    .hero-section {
+        margin-top: 0px;
+        min-height: 75vh;   
+        border-radius: 0 10 10 0;
         padding: 1rem;
+        text-align: center;
+        background: linear-gradient(135deg, #3f9b4b, #31b678);
+    }
+
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-section .btn {
+        width: 100%;
+        padding: 0.5rem 0.5rem;
+        font-size: 15px;
+        border: 1px solid white;
     }
 
     .events-section {
         grid-template-columns: 1fr;
-        padding: 0 1rem;
+        padding: 0 5rem;
     }
 
     .event-card {
@@ -272,6 +381,4 @@ footer {
         margin: 5px 0px;
         padding: 10px 30px;
     }
-
-
 }

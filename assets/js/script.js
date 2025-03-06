@@ -7,9 +7,11 @@ document.getElementById("formEvento").addEventListener("submit", function (e) {
     const local = document.getElementById("local").value;
     const organizador = document.getElementById("organizador").value || "Não informado";
     const contato = document.getElementById("contato").value || "Não informado";
+    const horarioInicio = document.getElementById("horarioInicio").value || "Não informado";
+    const horarioTermino = document.getElementById("horarioTermino").value || "Não informado";
     const imagemInput = document.getElementById("imagem");
 
-    if (nome && descricao && data && local) {
+    if (nome && descricao && data && local && horarioInicio && horarioTermino) {
         const card = document.createElement("div");
         card.classList.add("col-md-4", "mb-3");
 
@@ -40,6 +42,7 @@ document.getElementById("formEvento").addEventListener("submit", function (e) {
                             <p><strong>Organizador:</strong> ${organizador}</p>
                             <p><strong>Contato:</strong> ${contato}</p>
                             <p><strong>Descrição:</strong> ${descricao}</p>
+                            <p><strong>Horário:</strong> ${horarioInicio} - ${horarioTermino}</p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +58,7 @@ document.getElementById("formEvento").addEventListener("submit", function (e) {
             document.getElementById("formEvento").reset();
 
             // Atualizar eventos
-            eventos.unshift({ nome, descricao, data, local, organizador, contato, imagem: imagemHTML });
+            eventos.unshift({ nome, descricao, data, local, organizador, contato, horarioInicio, horarioTermino, imagem: imagemHTML });
             filtrarEventos();
         }
     } else {
@@ -82,6 +85,8 @@ const eventos = [
         local: "ESBAM",
         organizador: "Thiago Almeida",
         contato: "thiago.almeida@example.com",
+        horarioInicio: "10:00",
+        horarioTermino: "12:00",
         imagem: `<img src="assets/img/med-veterinaria.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
     },
     {
@@ -91,6 +96,8 @@ const eventos = [
         local: "ESBAM",
         organizador: "Maria Silva",
         contato: "maria.silva@example.com",
+        horarioInicio: "14:00",
+        horarioTermino: "16:00",
         imagem: `<img src="assets/img/psicologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
     },
     {
@@ -100,6 +107,8 @@ const eventos = [
         local: "ESBAM",
         organizador: "João Pereira",
         contato: "joao.pereira@example.com",
+        horarioInicio: "09:00",
+        horarioTermino: "11:00",
         imagem: `<img src="assets/img/tecnologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
     },
     {
@@ -109,6 +118,8 @@ const eventos = [
         local: "ESBAM",
         organizador: "Ana Costa",
         contato: "ana.costa@example.com",
+        horarioInicio: "13:00",
+        horarioTermino: "15:00",
         imagem: `<img src="assets/img/direito.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
     }
 ];
@@ -149,6 +160,7 @@ function filtrarEventos() {
                         <p><strong>Organizador:</strong> ${evento.organizador}</p>
                         <p><strong>Contato:</strong> ${evento.contato}</p>
                         <p><strong>Descrição:</strong> ${evento.descricao}</p>
+                        <p><strong>Horário:</strong> ${evento.horarioInicio} - ${evento.horarioTermino}</p>
                     </div>
                 </div>
             </div>
@@ -160,3 +172,7 @@ function filtrarEventos() {
 // Carregar eventos iniciais
 document.addEventListener("DOMContentLoaded", filtrarEventos);
 
+document.getElementById('navbarToggle').addEventListener('click', function() {
+    const navbarNav = document.getElementById('navbarNav');
+    navbarNav.classList.toggle('show');
+});
