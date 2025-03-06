@@ -30,81 +30,29 @@
 
     <!-- Seção principal -->
     <main>
-
-        <!-- Área de exemplos de cards de eventos-->
-        <div id="eventosContainer" class="row mt-4">
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <img src="assets/img/med-veterinaria.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Evento - Meu pet de bem com a vida</h5>
-                        <p class="card-text">Descrição do evento 1.</p>
-                        <p class="text-muted">05/03/2025 - ESBAM</p>
-                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                        <div class="detalhes" style="display: none;">
-                            <hr>
-                            <p><strong>Organizador:</strong> Thiago Almeida</p>
-                            <p><strong>Contato:</strong> thiago.almeida@example.com</p>
-                            <p><strong>Descrição:</strong> Um evento dedicado ao bem-estar dos pets, com palestras e atividades.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <img src="assets/img/psicologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Evento - Saúde Mental</h5>
-                        <p class="card-text">Descrição do evento 2.</p>
-                        <p class="text-muted">06/03/2025 - ESBAM</p>
-                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                        <div class="detalhes" style="display: none;">
-                            <hr>
-                            <p><strong>Organizador:</strong> Maria Silva</p>
-                            <p><strong>Contato:</strong> maria.silva@example.com</p>
-                            <p><strong>Descrição:</strong> Discussões sobre a importância da saúde mental e técnicas de autocuidado.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <img src="assets/img/tecnologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Evento - Inovações Tecnológicas</h5>
-                        <p class="card-text">Descrição do Evento</p>
-                        <p class="text-muted">07/03/2025 - ESBAM</p>
-                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                        <div class="detalhes" style="display: none;">
-                            <hr>
-                            <p><strong>Organizador:</strong> João Pereira</p>
-                            <p><strong>Contato:</strong> joao.pereira@example.com</p>
-                            <p><strong>Descrição:</strong> Apresentação das últimas inovações tecnológicas e suas aplicações.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <img src="assets/img/direito.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">Evento - Direito e Sociedade</h5>
-                        <p class="card-text">Descrição do evento 4.</p>
-                        <p class="text-muted">08/03/2025 - ESBAM</p>
-                      <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                        <div class="detalhes" style="display: none;">
-                            <hr>
-                            <p><strong>Organizador:</strong> Ana Costa</p>
-                            <p><strong>Contato:</strong> ana.costa@example.com</p>
-                            <p><strong>Descrição:</strong> Debates sobre o impacto das leis na sociedade moderna.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+<!-- Barra de filtro melhorada com Bootstrap -->
+<div class="filter-bar mb-4">
+    <div class="row g-2">
+        <div class="col-md-5">
+            <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar eventos">
         </div>
+        <div class="col-md-4">
+            <select id="sortSelect" class="form-select">
+                <option value="default" selected>Ordenar por</option>
+                <option value="name">Nome</option>
+                <option value="date">Data</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button id="searchButton" class="btn btn-success w-100">
+                <i class="bi bi-search"></i> Buscar
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
 
         <!--formulário ao clicar no botão eventos -->
         <div class="modal fade" id="modalEvento" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -123,7 +71,7 @@
                                 <textarea id="descricao" class="form-control" placeholder="Descrição" required></textarea>
                             </div>
                             <div class="mb-2">
-                                <input type="date" id="data" class="form-control" required>
+                                <input type="date" id="data" class="form-control" placeholder="Data do evento" required>
                             </div>
                             <div class="mb-2">
                                 <input type="text" id="local" class="form-control" placeholder="Local do evento" required>
@@ -143,6 +91,83 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Área de exemplos de cards de eventos-->
+        <div id="eventosContainer" class="row mt-4">
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <img src="assets/img/med-veterinaria.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Evento - Meu pet bem cuidado</h5>
+                        <p class="text-muted"><strong>Data:</strong> 05/03/2025</p>
+                        <p class="text-muted"><strong>Local:</strong> ESBAM</p>
+                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
+                        <div class="detalhes" style="display: none;">
+                            <hr>
+                            <p><strong>Organizador:</strong> Thiago Almeida</p>
+                            <p><strong>Contato:</strong> thiago.almeida@example.com</p>
+                            <p><strong>Descrição:</strong> Um evento dedicado ao bem-estar dos pets, com palestras e atividades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <img src="assets/img/psicologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Evento - Saúde Mental</h5>
+                        <p class="text-muted"><strong>Data:</strong> 06/03/2025</p>
+                        <p class="text-muted"><strong>Local:</strong> ESBAM</p>
+                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
+                        <div class="detalhes" style="display: none;">
+                            <hr>
+                            <p><strong>Organizador:</strong> Maria Silva</p>
+                            <p><strong>Contato:</strong> maria.silva@example.com</p>
+                            <p><strong>Descrição:</strong> Discussões sobre a importância da saúde mental e técnicas de autocuidado.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <img src="assets/img/tecnologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Evento - Inovações Tecnológicas</h5>
+                        <p class="text-muted"><strong>Data:</strong> 07/03/2025</p>
+                        <p class="text-muted"><strong>Local:</strong> ESBAM</p>
+                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
+                        <div class="detalhes" style="display: none;">
+                            <hr>
+                            <p><strong>Organizador:</strong> João Pereira</p>
+                            <p><strong>Contato:</strong> joao.pereira@example.com</p>
+                            <p><strong>Descrição:</strong> Apresentação das últimas inovações tecnológicas e suas aplicações.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm">
+                    <img src="assets/img/direito.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Evento - Direito e Sociedade</h5>
+                        <p class="text-muted"><strong>Data:</strong> 08/03/2025</p>
+                        <p class="text-muted"><strong>Local:</strong> ESBAM</p>
+                      <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
+                        <div class="detalhes" style="display: none;">
+                            <hr>
+                            <p><strong>Organizador:</strong> Ana Costa</p>
+                            <p><strong>Contato:</strong> ana.costa@example.com</p>
+                            <p><strong>Descrição:</strong> Debates sobre o impacto das leis na sociedade moderna.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
     </main>
 
 

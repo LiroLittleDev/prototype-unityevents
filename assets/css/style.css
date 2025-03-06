@@ -255,7 +255,6 @@ footer {
     .footer-content div {
         padding: 0.5rem 0;
         text-align: center;
-        border: 1px sold red;
     }
 
     .footer-links a {
@@ -272,7 +271,6 @@ footer {
     .footer-links a, .footer-social a {
         margin: 5px 0px;
         padding: 10px 30px;
-        border: 1px solid red;
     }
 
 
