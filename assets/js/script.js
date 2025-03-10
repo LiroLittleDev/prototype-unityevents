@@ -169,10 +169,12 @@ function filtrarEventos() {
     });
 }
 
-// Carregar eventos iniciais
-document.addEventListener("DOMContentLoaded", filtrarEventos);
+// JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-document.getElementById('navbarToggle').addEventListener('click', function() {
-    const navbarNav = document.getElementById('navbarNav');
-    navbarNav.classList.toggle('show');
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 });

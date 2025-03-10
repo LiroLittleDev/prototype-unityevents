@@ -12,21 +12,30 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo-nome">
-            <img src="assets/img/logo simples de site de eventos.png" alt="" class="logo-img">
-            UnityEvents
-        </div>
-        <div class="nav-links">
-            <button class="btn btn-primary btn-login" url="loginpage.html">
-                <span><a href="loginpage.html">Login/Cadastro</a></span>
+<nav class="navbar">
+    <a class="logo" href="index.html">
+        <img src="assets/img/logo simples de site de eventos.png" alt="">
+    </a>
+    <div class="menu-toggle">☰</div>
+    <ul class="nav-menu">
+
+        <li>
+        <button class="btn btn-primary btn-login" url="loginpage.html">
+                <a href="loginpage.html">Login/Cadastro
+                </a>
+        </button>
+        </li>
+        
+        <li>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEvento">Criar Evento
             </button>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEvento">
-                Criar Evento
-            </button>
-        </div>
-    </nav>
+        </li>
+
+    </ul>
+</nav>
+
+
+
 
     <!-- Seção principal -->
     <main>

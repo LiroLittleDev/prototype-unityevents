@@ -3,57 +3,62 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+
 }
 
-/* Barra de navegação */
-nav {
+.navbar {
     background-color: #67a800;
-    color: white;
-    padding: 10px;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-.logo-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 1.5rem;
-}
-
-.logo-nome {
-    margin-left: 20px;
+.logo {
+    color: white;
     font-size: 1.5rem;
     font-weight: bold;
-    display: flex;
-    align-items: center;
 }
 
-.nav-links {
+.logo img {
+    padding: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.nav-menu {
     display: flex;
+    list-style: none;
+    transition: all 0.3s ease;
+}
+
+.nav-menu li {
+    margin: 0 0.5rem;
+    padding: 0px;
     text-align: center;
-    align-items: center;
-    gap: 1rem;
 }
 
-.nav-links a {
+.nav-menu a {
     color: white;
+    padding: 15px 50px;
     text-decoration: none;
-    padding: 14px 35px;
-    border-radius: 5px;
-    text-align: center;
+    transition: colo 0.3s ease;
 }
 
-.btn-login {
-    text-indent: -5px;
-}
 
-.nav-links a:hover {
+.nav-menu a:hover {
     color: #67a800;
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .btn {
@@ -61,13 +66,13 @@ nav {
     text-transform: uppercase;
     color: #fff;
     font-size: 13px; /* Aumenta o tamanho do texto */
-    padding: 10px 10px; /* Aumenta o padding */
+    padding: 10px 20px; /* Aumenta o padding */
     cursor: pointer;
     font-weight: bold;
     width: 200px; /* Aumenta a largura do botão */
     align-self: center;
     border: none;
-    margin: 10px 10px
+    margin: 10px 0px
 }
 
 .btn-primary {
@@ -82,14 +87,9 @@ nav {
     border: #67a800;
 }
 
-.search-bar {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-    background-color: #ecf0f1;
+.btn-login {
+    text-align: center;
+    text-indent: -29px;
 }
 
 /* Seção principal */
@@ -98,11 +98,14 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 
 /* Hero Section */
+
+
 .hero-section {
-    min-height: 60vh;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,6 +114,7 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 }
 
 .hero-section h1 {
+    margin-top: 100px;
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     color: white;
@@ -214,7 +218,6 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 
 /* Rodapé */
 footer {
-    border: 1px solid red;
     background-color: #67a800;
     color: white;
     padding: 0.8rem;
@@ -274,40 +277,47 @@ footer {
 
 /* Barra de navegação responsiva */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-        position: static; /* Nav não acompanha */
+    .menu-toggle {
+        display: block;
+        font-size: 2rem;
     }
 
-    .logo-nome {
-        margin-left: 0;
-        margin-bottom: 0.1rem;
+    .navbar {
+        justify-content: space-around;
     }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 80%;
+    .logo img {
+        width: 60px;
+        height: 60px;
     }
 
-    .btn-login {
-        text-indent: 0px;
+    .logo {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    .nav-links a, .nav-links button {
+    .btn {
+        right: 1rem;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
         width: 100%;
-        text-align: center;
-        padding: 0.5rem 1rem;
+        background-color: #67a800;
+        flex-direction: column;
+        padding: 0.5rem;
     }
 
-   /*  AINDA SERÁ IMPLEMENTADO A AREA DE PESQUISA
-   .search-bar {
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }*/
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
 }
-
 
 /* Seção principal responsiva */
 @media (max-width: 768px) {
@@ -330,7 +340,7 @@ footer {
     }
 
     .hero-section .btn {
-        width: 100%;
+        width: 30vh;
         padding: 0.5rem 0.5rem;
         font-size: 15px;
         border: 1px solid white;

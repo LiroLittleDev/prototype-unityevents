@@ -77,40 +77,8 @@ main{
     color: #7f8c8d;
     text-align: center;
 }
-.btn {
-    border-radius: 25px;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 13px;
-    padding: 10px 10px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 200px;
-    align-self: center;
-    border: none;
-    margin: 10px 10px;
-}
-.btn-primary {
-    background-color: transparent;
-    border: 1px solid #fff;
-    transition: background-color .5s;
-}
-.btn-primary:hover {
-    background-color: #ffffff;
-    color: #67a800;
-    border: #67a800;
-}
-.btn-second {
-    background-color: #67a800;
-    border: 1px solid #67a800;
-    transition: background-color .5s;
-    margin-bottom: 120px;
-}
-.btn-second:hover {
-    background-color: #fff;
-    border: 1px solid #67a800;
-    color: #67a800;
-}
+
+
 .first-content {
     display: flex;
 }
@@ -263,15 +231,8 @@ main{
         width: 50%;
     }
 }
+
 @media (max-width: 768px) {
-    main {
-        height: auto;
-        padding: 20px;
-    }
-    .container-login {
-        height: auto;
-        padding: 20px;
-    }
     .content {
         flex-direction: column;
         width: 100%;
@@ -285,15 +246,8 @@ main{
     .first-column, .second-column {
         width: 100%;
     }
-    .title {
-        font-size: 24px;
-    }
-    .description {
-        font-size: 14px;
-    }
     .btn {
         width: 100%;
-        padding: 10px;
     }
     .btn-second {
         margin-bottom: 20px;
@@ -301,10 +255,7 @@ main{
     .form {
         width: 90%;
     }
-    .form input {
-        margin-left: 0;
-    }
     .label-input {
-        margin: 5px 0;
+        margin: 10px 0;
     }
 }
