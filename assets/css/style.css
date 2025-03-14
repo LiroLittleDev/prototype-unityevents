@@ -1,27 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Signika+Negative:wght@300..700&display=swap');
+
+
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
 
 }
 
 .navbar {
     background-color: #67a800;
-    padding: 1rem;
+    padding: 0.1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
 .logo {
+    display: flex;
+    align-items: center;
     color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
+    padding: 12px 30px;
 }
 
 .logo img {
@@ -31,13 +34,16 @@
 }
 
 .nav-menu {
+    margin-right: 15px;
     display: flex;
+    text-align: center;
+    align-items: center;
     list-style: none;
     transition: all 0.3s ease;
 }
 
 .nav-menu li {
-    margin: 0 0.5rem;
+    margin: 0 0.8rem;
     padding: 0px;
     text-align: center;
 }
@@ -48,7 +54,6 @@
     text-decoration: none;
     transition: colo 0.3s ease;
 }
-
 
 .nav-menu a:hover {
     color: #67a800;
@@ -62,20 +67,21 @@
 }
 
 .btn {
-    border-radius: 25px;
-    text-transform: uppercase;
     color: #fff;
-    font-size: 13px; /* Aumenta o tamanho do texto */
-    padding: 10px 20px; /* Aumenta o padding */
-    cursor: pointer;
+    padding: 10px 20px;
     font-weight: bold;
-    width: 200px; /* Aumenta a largura do botão */
     align-self: center;
     border: none;
-    margin: 10px 0px
+    margin: 1px 0px;
+    align-items: center;
+    justify-items: center;
 }
 
 .btn-primary {
+    margin-top: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
     background-color: transparent;
     border: 1px solid #fff;
     transition: background-color .5s;
@@ -87,10 +93,11 @@
     border: #67a800;
 }
 
-.btn-login {
-    text-align: center;
-    text-indent: -29px;
+.btn-login{
+    padding: 10px 0px;
 }
+
+
 
 /* Seção principal */
 main {/* Ajuste para não ficar atrás da barra de navegação */
@@ -114,7 +121,6 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 }
 
 .hero-section h1 {
-    margin-top: 100px;
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     color: white;
@@ -156,9 +162,10 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 }
 
 .btn-link {
+    font-size: 14px;
     color: rgb(255, 255, 255);
     background-color: #67a800;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     border-radius: 5px;
     text-decoration: none;
 }
@@ -315,6 +322,7 @@ footer {
     }
 
     .nav-menu li {
+        justify-content: space-between;
         margin: 0.5rem 0;
     }
 }

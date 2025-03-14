@@ -30,7 +30,6 @@ main{
     background-color: #edede9;
 }
 .content {
-    border: 1px solid red;
     margin-top: 60px;
     background-color: #fff;
     border-radius: 15px;
@@ -42,7 +41,6 @@ main{
     position: relative;
 }
 .content::before {
-    border: 1px solid red;
     content: "";
     position: absolute;
     background-color: #67a800;
