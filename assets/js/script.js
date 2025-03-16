@@ -1,179 +1,165 @@
-document.getElementById("formEvento").addEventListener("submit", function (e) {
-    e.preventDefault();
+// Função para abrir o modal com detalhes completos do evento
+function abrirEventoCompleto(evento) {
+  document.getElementById("eventoImagem").src = evento.imagem;
+  document.getElementById("eventoNome").textContent = evento.nome;
+  document.getElementById("eventoData").textContent = new Date(
+    evento.data
+  ).toLocaleDateString("pt-BR");
+  document.getElementById("eventoLocal").textContent = evento.local;
+  document.getElementById("eventoOrganizador").textContent = evento.organizador;
+  document.getElementById("eventoContato").textContent = evento.contato;
+  document.getElementById("eventoDescricao").textContent = evento.descricao;
 
-    const nome = document.getElementById("nome").value;
-    const descricao = document.getElementById("descricao").value;
-    const data = document.getElementById("data").value;
-    const local = document.getElementById("local").value;
-    const organizador = document.getElementById("organizador").value || "Não informado";
-    const contato = document.getElementById("contato").value || "Não informado";
-    const horarioInicio = document.getElementById("horarioInicio").value || "Não informado";
-    const horarioTermino = document.getElementById("horarioTermino").value || "Não informado";
-    const imagemInput = document.getElementById("imagem");
-
-    if (nome && descricao && data && local && horarioInicio && horarioTermino) {
-        const card = document.createElement("div");
-        card.classList.add("col-md-4", "mb-3");
-
-        let imagemHTML = "";
-        if (imagemInput.files.length > 0) {
-            const file = imagemInput.files[0];
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                imagemHTML = `<img src="${e.target.result}" class="card-img-top" style="height: 180px; object-fit: cover;">`;
-                inserirEvento();
-            };
-            reader.readAsDataURL(file);
-        } else {
-            inserirEvento();
-        }
-
-        function inserirEvento() {
-            card.innerHTML = `
-                <div class="card shadow-sm">
-                    ${imagemHTML}
-                    <div class="card-body">
-                        <h5 class="card-title">${nome}</h5>
-                        <p class="text-muted"><strong>Data:</strong> ${data}</p>
-                        <p class="text-muted"><strong>Local:</strong> ${local}</p>
-                        <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                        <div class="detalhes" style="display: none;">
-                            <hr>
-                            <p><strong>Organizador:</strong> ${organizador}</p>
-                            <p><strong>Contato:</strong> ${contato}</p>
-                            <p><strong>Descrição:</strong> ${descricao}</p>
-                            <p><strong>Horário:</strong> ${horarioInicio} - ${horarioTermino}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById("eventosContainer").prepend(card);
-
-            // Fechar modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById("modalEvento"));
-            modal.hide();
-
-            // Limpar campos
-            document.getElementById("formEvento").reset();
-
-            // Atualizar eventos
-            eventos.unshift({ nome, descricao, data, local, organizador, contato, horarioInicio, horarioTermino, imagem: imagemHTML });
-            filtrarEventos();
-        }
-    } else {
-        alert("Preencha todos os campos obrigatórios!");
-    }
-});
-
-function toggleDetails(button) {
-    const details = button.nextElementSibling;
-    if (details.style.display === "none") {
-        details.style.display = "block";
-        button.textContent = "Ocultar detalhes";
-    } else {
-        details.style.display = "none";
-        button.textContent = "Exibir mais detalhes";
-    }
+  const modal = new bootstrap.Modal(
+    document.getElementById("modalEventoCompleto")
+  );
+  modal.show();
 }
 
+// Dados iniciais dos eventos
 const eventos = [
-    {
-        nome: "Meu pet bem cuidado",
-        descricao: "Um evento dedicado ao bem-estar dos pets, com palestras e atividades.",
-        data: "2025-03-05",
-        local: "ESBAM",
-        organizador: "Thiago Almeida",
-        contato: "thiago.almeida@example.com",
-        horarioInicio: "10:00",
-        horarioTermino: "12:00",
-        imagem: `<img src="assets/img/med-veterinaria.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
-    },
-    {
-        nome: "Saúde Mental",
-        descricao: "Discussões sobre a importância da saúde mental e técnicas de autocuidado.",
-        data: "2025-03-06",
-        local: "ESBAM",
-        organizador: "Maria Silva",
-        contato: "maria.silva@example.com",
-        horarioInicio: "14:00",
-        horarioTermino: "16:00",
-        imagem: `<img src="assets/img/psicologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
-    },
-    {
-        nome: "Inovações Tecnológicas",
-        descricao: "Apresentação das últimas inovações tecnológicas e suas aplicações.",
-        data: "2025-03-07",
-        local: "ESBAM",
-        organizador: "João Pereira",
-        contato: "joao.pereira@example.com",
-        horarioInicio: "09:00",
-        horarioTermino: "11:00",
-        imagem: `<img src="assets/img/tecnologia.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
-    },
-    {
-        nome: "Direito e Sociedade",
-        descricao: "Debates sobre o impacto das leis na sociedade moderna.",
-        data: "2025-03-08",
-        local: "ESBAM",
-        organizador: "Ana Costa",
-        contato: "ana.costa@example.com",
-        horarioInicio: "13:00",
-        horarioTermino: "15:00",
-        imagem: `<img src="assets/img/direito.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">`
-    }
+  {
+    nome: "Meu pet bem cuidado",
+    data: "2025-03-05",
+    local: "ESBAM",
+    organizador: "Thiago Almeida",
+    contato: "thiago.almeida@example.com",
+    descricao: "Um evento dedicado ao bem-estar dos pets.",
+    imagem: "assets/img/med-veterinaria.jpg",
+  },
+  {
+    nome: "Saúde Mental",
+    data: "2025-03-06",
+    local: "ESBAM",
+    organizador: "Maria Silva",
+    contato: "maria.silva@example.com",
+    descricao: "Discussões sobre saúde mental.",
+    imagem: "assets/img/psicologia.jpg",
+  },
+  {
+    nome: "Inovações Tecnológicas",
+    data: "2025-03-07",
+    local: "ESBAM",
+    organizador: "João Pereira",
+    contato: "joao.pereira@example.com",
+    descricao: "Inovações tecnológicas.",
+    imagem: "assets/img/tecnologia.jpg",
+  },
+  {
+    nome: "Direito e Sociedade",
+    data: "2025-03-08",
+    local: "ESBAM",
+    organizador: "Ana Costa",
+    contato: "ana.costa@example.com",
+    descricao: "Debates sobre leis.",
+    imagem: "assets/img/direito.jpg",
+  },
 ];
 
-document.getElementById("searchInput").addEventListener("input", filtrarEventos);
-document.getElementById("sortSelect").addEventListener("change", filtrarEventos);
-
-function filtrarEventos() {
-    const searchValue = document.getElementById("searchInput").value.toLowerCase();
-    const sortValue = document.getElementById("sortSelect").value;
-
-    let filteredEventos = eventos.filter(evento => 
-        evento.nome.toLowerCase().includes(searchValue)
-    );
-
-    if (sortValue === "name") {
-        filteredEventos.sort((a, b) => a.nome.localeCompare(b.nome));
-    } else if (sortValue === "date") {
-        filteredEventos.sort((a, b) => new Date(a.data) - new Date(b.data));
-    }
-
-    const eventosContainer = document.getElementById("eventosContainer");
-    eventosContainer.innerHTML = "";
-
-    filteredEventos.forEach(evento => {
-        const card = document.createElement("div");
-        card.classList.add("col-md-4", "mb-3");
-        card.innerHTML = `
-            <div class="card shadow-sm">
-                ${evento.imagem}
-                <div class="card-body">
-                    <h5 class="card-title">${evento.nome}</h5>
-                    <p class="text-muted"><strong>Data:</strong> ${evento.data}</p>
-                    <p class="text-muted"><strong>Local:</strong> ${evento.local}</p>
-                    <button class="btn btn-link p-0" type="button" onclick="toggleDetails(this)">Exibir mais detalhes</button>
-                    <div class="detalhes" style="display: none;">
-                        <hr>
-                        <p><strong>Organizador:</strong> ${evento.organizador}</p>
-                        <p><strong>Contato:</strong> ${evento.contato}</p>
-                        <p><strong>Descrição:</strong> ${evento.descricao}</p>
-                        <p><strong>Horário:</strong> ${evento.horarioInicio} - ${evento.horarioTermino}</p>
+// Renderizar eventos
+function renderizarEventos(eventosFiltrados = eventos) {
+  const container = document.getElementById("eventosContainer");
+  container.innerHTML = "";
+  eventosFiltrados.forEach((evento, index) => {
+    container.innerHTML += `
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <img src="${
+                              evento.imagem
+                            }" class="card-img-top" alt="${evento.nome}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${evento.nome}</h5>
+                                <p class="text-muted"><strong>Data:</strong> ${new Date(
+                                  evento.data
+                                ).toLocaleDateString("pt-BR")}</p>
+                                <p class="text-muted"><strong>Local:</strong> ${
+                                  evento.local
+                                }</p>
+                                <button class="btn btn-ver-evento btn-sm mt-auto" type="button" onclick="abrirEventoCompleto(eventos[${index}])">Detalhes do Evento</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        `;
-        eventosContainer.appendChild(card);
-    });
+                `;
+  });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+// Inicializar eventos
+document.addEventListener("DOMContentLoaded", () => renderizarEventos());
 
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
+// Adicionar novo evento
+document.getElementById("formEvento").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const novoEvento = {
+    nome: document.getElementById("nome").value,
+    descricao: document.getElementById("descricao").value,
+    data: document.getElementById("data").value,
+    local: document.getElementById("local").value,
+    organizador: document.getElementById("organizador").value || "Anônimo",
+    contato: document.getElementById("contato").value || "Não informado",
+    imagem: document.getElementById("imagem").files[0]
+      ? URL.createObjectURL(document.getElementById("imagem").files[0])
+      : "assets/img/default-event.jpg",
+  };
+  eventos.unshift(novoEvento); // Adiciona o novo evento no início do array
+  renderizarEventos();
+  bootstrap.Modal.getInstance(document.getElementById("modalEvento")).hide();
+  e.target.reset();
+});
+
+// Função para remover acentos de uma string
+function removerAcentos(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Filtro e ordenação automáticos
+document.getElementById("searchInput").addEventListener("input", () => {
+  const searchTerm = removerAcentos(
+    document.getElementById("searchInput").value.toLowerCase()
+  );
+  const sortOption = document.getElementById("sortSelect").value;
+  let eventosFiltrados = eventos.filter(
+    (e) =>
+      removerAcentos(e.nome.toLowerCase()).includes(searchTerm) ||
+      removerAcentos(e.local.toLowerCase()).includes(searchTerm) ||
+      removerAcentos(e.descricao.toLowerCase()).includes(searchTerm)
+  );
+  if (sortOption === "name")
+    eventosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
+  else if (sortOption === "date")
+    eventosFiltrados.sort((a, b) => new Date(a.data) - new Date(b.data));
+  renderizarEventos(eventosFiltrados);
+});
+document.getElementById("sortSelect").addEventListener("change", () => {
+  const searchTerm = removerAcentos(
+    document.getElementById("searchInput").value.toLowerCase()
+  );
+  const sortOption = document.getElementById("sortSelect").value;
+  let eventosFiltrados = eventos.filter(
+    (e) =>
+      removerAcentos(e.nome.toLowerCase()).includes(searchTerm) ||
+      removerAcentos(e.local.toLowerCase()).includes(searchTerm) ||
+      removerAcentos(e.descricao.toLowerCase()).includes(searchTerm)
+  );
+  if (sortOption === "name")
+    eventosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome));
+  else if (sortOption === "date")
+    eventosFiltrados.sort((a, b) => new Date(a.data) - new Date(b.data));
+  renderizarEventos(eventosFiltrados);
+});
+
+// Ação do botão Inscrever-se
+document.getElementById("inscreverBtn").addEventListener("click", () => {
+  alert("Inscrição realizada com sucesso! (Funcionalidade em desenvolvimento)");
+  bootstrap.Modal.getInstance(
+    document.getElementById("modalEventoCompleto")
+  ).hide();
+});
+
+// função para abrir e fechar o menu em responsividade
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".nav-menu");
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
 });

@@ -100,6 +100,24 @@
     padding: 10px 0px;
 }
 
+.btn-ver-evento {
+    background-color: #28a745; /* Cor verde */
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-ver-evento:hover {
+    background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+    transform: scale(1.05);
+}
+
 /* Seção principal */
 main {/* Ajuste para não ficar atrás da barra de navegação */
     margin: 0;
@@ -215,11 +233,57 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 /* Efeito de subida nos cards */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
 }
 
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.btn-close {
+  background-color: #dc3545; /* Cor vermelha */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-close:hover {
+  background-color: #c82333; /* Cor vermelha mais escura ao passar o mouse */
+}
+
+.btn-inscrever {
+  background-color: #28a745; /* Cor verde */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-inscrever:hover {
+  background-color: #218838; /* Cor verde mais escura ao passar o mouse */
 }
 
 /* Rodapé */
