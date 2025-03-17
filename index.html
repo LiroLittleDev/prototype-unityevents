@@ -173,6 +173,16 @@
                     accept="image/*"
                   />
                 </div>
+                <!-- LISTA DE OPÇÃO DE CURSOS-->
+                <div class="mb-3">
+                  <select id="curso" class="form-select" required>
+                    <option value="" disabled selected>Selecione o curso</option>
+                    <option value="Medicina Veterinária">Medicina Veterinária</option>
+                    <option value="Psicologia">Psicologia</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Direito">Direito</option>
+                  </select>
+                </div>
                 <button type="submit" class="btn btn-success w-100">
                   Adicionar Evento
                 </button>
@@ -214,6 +224,7 @@
               <h3 id="eventoNome"></h3>
               <p><strong>Data:</strong> <span id="eventoData"></span></p>
               <p><strong>Local:</strong> <span id="eventoLocal"></span></p>
+              <p><strong>Curso:</strong> <span id="eventoCurso"></span></p>
               <p>
                 <strong>Organizador:</strong>
                 <span id="eventoOrganizador"></span>

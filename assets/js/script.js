@@ -6,6 +6,7 @@ function abrirEventoCompleto(evento) {
     evento.data
   ).toLocaleDateString("pt-BR");
   document.getElementById("eventoLocal").textContent = evento.local;
+  document.getElementById("eventoCurso").textContent = evento.curso; // Adicione esta linha
   document.getElementById("eventoOrganizador").textContent = evento.organizador;
   document.getElementById("eventoContato").textContent = evento.contato;
   document.getElementById("eventoDescricao").textContent = evento.descricao;
@@ -26,6 +27,7 @@ const eventos = [
     contato: "thiago.almeida@example.com",
     descricao: "Um evento dedicado ao bem-estar dos pets.",
     imagem: "assets/img/med-veterinaria.jpg",
+    curso: "Medicina Veterinária",
   },
   {
     nome: "Saúde Mental",
@@ -35,6 +37,7 @@ const eventos = [
     contato: "maria.silva@example.com",
     descricao: "Discussões sobre saúde mental.",
     imagem: "assets/img/psicologia.jpg",
+    curso: "Psicologia",
   },
   {
     nome: "Inovações Tecnológicas",
@@ -44,6 +47,7 @@ const eventos = [
     contato: "joao.pereira@example.com",
     descricao: "Inovações tecnológicas.",
     imagem: "assets/img/tecnologia.jpg",
+    curso: "Tecnologia",
   },
   {
     nome: "Direito e Sociedade",
@@ -53,6 +57,7 @@ const eventos = [
     contato: "ana.costa@example.com",
     descricao: "Debates sobre leis.",
     imagem: "assets/img/direito.jpg",
+    curso: "Direito",
   },
 ];
 
@@ -74,6 +79,9 @@ function renderizarEventos(eventosFiltrados = eventos) {
                                 ).toLocaleDateString("pt-BR")}</p>
                                 <p class="text-muted"><strong>Local:</strong> ${
                                   evento.local
+                                }</p>
+                                <p class="text-muted"><strong>Curso:</strong> ${
+                                  evento.curso
                                 }</p>
                                 <button class="btn btn-ver-evento btn-sm mt-auto" type="button" onclick="abrirEventoCompleto(eventos[${index}])">Detalhes do Evento</button>
                             </div>
@@ -99,6 +107,7 @@ document.getElementById("formEvento").addEventListener("submit", (e) => {
     imagem: document.getElementById("imagem").files[0]
       ? URL.createObjectURL(document.getElementById("imagem").files[0])
       : "assets/img/default-event.jpg",
+    curso: document.getElementById("curso").value,
   };
   eventos.unshift(novoEvento); // Adiciona o novo evento no início do array
   renderizarEventos();

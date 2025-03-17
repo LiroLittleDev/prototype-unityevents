@@ -248,7 +248,7 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 }
 
 .card-img-top {
-    max-height: 200px;
+    max-height: 220px;
     object-fit: cover;
 }
 
@@ -400,7 +400,7 @@ footer {
 
     .events-section {
         grid-template-columns: 1fr;
-        padding: 0 5rem;
+        padding: 0 2rem;
     }
 
     .event-card {
