@@ -134,7 +134,7 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #47a353, #21a859);
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 .hero-section h1 {
@@ -146,7 +146,7 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 .hero-section .btn {
     background-color: #67a800;
     width: 15%;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.1rem;
     font-size: 15px;
     border: 1px solid white;
 }
@@ -160,11 +160,35 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
 
 /* Filter Section */
 .filter-section {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
 }
+
 .filter-bar {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-bar .form-control,
+.filter-bar .form-select,
+.filter-bar .btn {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .filter-bar .row {
+    flex-direction: column;
+  }
+
+  .filter-bar .col-md-5,
+  .filter-bar .col-md-4,
+  .filter-bar .col-md-3 {
+    width: 100%;
+  }
+
+  .filter-bar .btn {
+    width: 100%;
+  }
 }
 
 .events-section {
@@ -380,7 +404,7 @@ footer {
 
     .hero-section {
         margin-top: 0px;
-        min-height: 75vh;   
+        min-height: 72vh;   
         border-radius: 0 10 10 0;
         padding: 1rem;
         text-align: center;
@@ -412,6 +436,21 @@ footer {
         height: auto;
         margin: 0;
     }
+}
+
+/* Estilos para os cards de eventos */
+.events-section .card {
+  transition: transform 0.2s;
+}
+
+.events-section .card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .events-section .col-md-4 {
+    width: 100%;
+  }
 }
 
 /* Rodapé responsivo */
