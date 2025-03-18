@@ -138,7 +138,7 @@ main {/* Ajuste para não ficar atrás da barra de navegação */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #35c43d, #66bb6a);
+    background: linear-gradient(135deg, #4ea73d, #35aa3a);
     border-radius: 0px 0px 0px 0px;
     padding: 5rem 0;
     text-align: center; /* Centralizar o texto */
