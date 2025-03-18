@@ -49,6 +49,24 @@ document.getElementById("inscreverBtn").addEventListener("click", () => {
   ).hide();
 });
 
+// Configuração do plugin Particles.js para HeroSection
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#ffffff" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5 },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 6 }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+    "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+  }
+});
+
 // Dados de exemplos de eventos
 let eventos = [
   {
@@ -90,6 +108,66 @@ let eventos = [
     descricao: "Debates sobre leis.",
     imagem: "assets/img/direito.jpg",
     curso: "Direito",
+  },
+  {
+    nome: "Construindo o Futuro",
+    data: "2025-03-09",
+    local: "ESBAM",
+    organizador: "Carlos Souza",
+    contato: "carlos.souza@example.com",
+    descricao: "Inovações na engenharia civil.",
+    imagem: "assets/img/engenharia.jpg",
+    curso: "Engenharia",
+  },
+  {
+    nome: "Gestão de Negócios",
+    data: "2025-03-10",
+    local: "ESBAM",
+    organizador: "Fernanda Lima",
+    contato: "fernanda.lima@example.com",
+    descricao: "Estratégias de administração moderna.",
+    imagem: "assets/img/administracao.jpg",
+    curso: "Administração",
+  },
+  {
+    nome: "Design de Interiores",
+    data: "2025-03-11",
+    local: "ESBAM",
+    organizador: "Paula Ribeiro",
+    contato: "paula.ribeiro@example.com",
+    descricao: "Tendências em design de interiores.",
+    imagem: "assets/img/design.jpg",
+    curso: "Design",
+  },
+  {
+    nome: "Arquitetura Sustentável",
+    data: "2025-03-12",
+    local: "ESBAM",
+    organizador: "Ricardo Martins",
+    contato: "ricardo.martins@example.com",
+    descricao: "Práticas de arquitetura sustentável.",
+    imagem: "assets/img/arquitetura.jpg",
+    curso: "Arquitetura",
+  },
+  {
+    nome: "Saúde e Bem-Estar",
+    data: "2025-03-13",
+    local: "ESBAM",
+    organizador: "Juliana Alves",
+    contato: "juliana.alves@example.com",
+    descricao: "Importância da educação física.",
+    imagem: "assets/img/educacao-fisica.jpg",
+    curso: "Educação Física",
+  },
+  {
+    nome: "Cuidados de Enfermagem",
+    data: "2025-03-14",
+    local: "ESBAM",
+    organizador: "Mariana Santos",
+    contato: "mariana.santos@example.com",
+    descricao: "Práticas avançadas em enfermagem.",
+    imagem: "assets/img/enfermagem.jpg",
+    curso: "Enfermagem",
   },
 ];
 
@@ -143,23 +221,28 @@ document.getElementById("sortSelect").addEventListener("change", () => {
   filtrarEventos();
 });
 
+// Adicione um evento de mudança ao seletor de curso
+document.getElementById("cursoSelect").addEventListener("change", () => {
+  filtrarEventos();
+});
+
 // Função para filtrar e ordenar eventos
 function filtrarEventos() {
   const searchTerm = removerAcentos(
     document.getElementById("searchInput").value.toLowerCase()
   );
   const sortOption = document.getElementById("sortSelect").value;
+  const cursoOption = document.getElementById("cursoSelect").value;
 
-  // Restaurar o array original se a pesquisa estiver vazia
-  if (searchTerm === "") {
-    eventos = [...eventosOriginais];
-  }
+  // Restaurar o array original antes de aplicar filtros e ordenação
+  eventos = [...eventosOriginais];
 
   let eventosFiltrados = eventos.filter(
     (e) =>
-      removerAcentos(e.nome.toLowerCase()).includes(searchTerm) ||
-      removerAcentos(e.local.toLowerCase()).includes(searchTerm) ||
-      removerAcentos(e.descricao.toLowerCase()).includes(searchTerm)
+      (removerAcentos(e.nome.toLowerCase()).includes(searchTerm) ||
+        removerAcentos(e.local.toLowerCase()).includes(searchTerm) ||
+        removerAcentos(e.descricao.toLowerCase()).includes(searchTerm)) &&
+      (cursoOption === "default" || e.curso === cursoOption)
   );
 
   if (sortOption === "name-asc")
@@ -181,6 +264,7 @@ function filtrarEventos() {
 document.getElementById("clearButton").addEventListener("click", () => {
   document.getElementById("searchInput").value = "";
   document.getElementById("sortSelect").value = "default";
+  document.getElementById("cursoSelect").value = "default";
   eventos = [...eventosOriginais]; // Restaurar o array original
   renderizarEventos();
 });

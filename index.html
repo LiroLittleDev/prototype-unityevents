@@ -20,7 +20,7 @@
         <img src="assets/img/logo simples de site de eventos.png" alt="imagem da logo" />
         <span>UnityEvents</span>
       </a>
-      <div class="menu-toggle">☰</div>
+      <div class="menu-toggle navbar-toggler">☰</div>
       <ul class="nav-menu">
         <li>
           <a class="btn btn-primary" href="loginpage.html">Login/Cadastro</a>
@@ -36,43 +36,58 @@
 
   <!-- Seção principal -->
   <main>
-    <!-- Hero Section -->
-    <section class="hero-section text-center text-white">
-      <div class="container">
-        <h1 class="display-4 fw-bold">Bem-vindo ao UnityEvents</h1>
-        <p class="lead mb-4">
-          Conecte-se, crie e viva experiências inesquecíveis com eventos
-          únicos.
+    <section class="hero-section text-center text-white" style="padding: 6rem 0; position: relative; overflow: hidden;">
+      <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+      <div class="container position-relative">
+        <h1 class="display-4 fw-bold">UnityEvents: O Futuro dos Eventos</h1>
+        <p class="lead mb-4">Conecte-se, crie e viva experiências inesquecíveis com eventos únicos.
         </p>
-        <a href="#eventosContainer1" class="btn btn-primary">Explorar Eventos</a>
+        <a href="#eventos" class="btn btn-primary btn-lg px-5">Explorar Eventos</a>
       </div>
     </section>
-    <div id="eventosContainer1"></div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
     <!-- Barra de Filtro -->
     <section class="filter-section py-4">
       <div class="container">
-        <div class="filter-bar">
-          <div class="row g-3 align-items-center">
-            <div class="col-md-5 col-12">
-              <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar eventos" />
-            </div>
-            <div class="col-md-4 col-12">
-              <select id="sortSelect" class="form-select">
-                <option value="default" selected>Ordenar por</option>
-                <option value="name-asc">Nome (A-Z)</option>
-                <option value="name-desc">Nome (Z-A)</option>
-                <option value="date-asc">Data (Menor para Maior)</option>
-                <option value="date-desc">Data (Maior para Menor)</option>
-              </select>
-            </div>
-            <div class="col-md-3 col-12 d-flex">
-              <button id="searchButton" class="btn btn-success w-100 me-2">
-                <i class="fa-solid fa-magnifying-glass"></i> Buscar
-              </button>
-            </div>
-          </div>
+      <div class="filter-bar">
+        <div class="row g-3 align-items-center">
+        <div class="col-md-3 col-12">
+          <input type="text" id="searchInput" class="form-control" placeholder="Pesquisar eventos" />
         </div>
+        <div class="col-md-3 col-12">
+          <!-- lista de ordenação -->
+          <select id="sortSelect" class="form-select">
+          <option value="default" selected>Ordenar por</option>
+          <option value="name-asc">Nome (A-Z)</option>
+          <option value="name-desc">Nome (Z-A)</option>
+          <option value="date-asc">Data (Menor para Maior)</option>
+          <option value="date-desc">Data (Maior para Menor)</option>
+          </select>
+        </div>
+        <div class="col-md-3 col-12">
+          <!-- lista de cursos-->
+          <select id="cursoSelect" class="form-select">
+          <option value="default" selected>Ordenar por curso</option>
+          <option value="Medicina Veterinária">Medicina Veterinária</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Tecnologia">Tecnologia</option>
+          <option value="Direito">Direito</option>
+          <option value="Engenharia">Engenharia</option>
+          <option value="Administração">Administração</option>
+          <option value="Arquitetura">Arquitetura</option>
+          <option value="Design">Design</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          </select>
+        </div>
+        <div class="col-md-3 col-12 d-flex">
+          <button id="searchButton" class="btn btn-success w-100 me-2">
+          <i class="fa-solid fa-magnifying-glass"></i> Buscar
+          </button>
+        </div>
+        </div>
+      </div>
       </div>
     </section>
 
@@ -115,6 +130,12 @@
                   <option value="Psicologia">Psicologia</option>
                   <option value="Tecnologia">Tecnologia</option>
                   <option value="Direito">Direito</option>
+                  <option value="Engenharia">Engenharia</option>
+                  <option value="Administração">Administração</option>
+                  <option value="Arquitetura">Arquitetura</option>
+                  <option value="Design">Design</option>
+                  <option value="Educação Física">Educação Física</option>
+                  <option value="Enfermagem">Enfermagem</option>
                 </select>
               </div>
               <button type="submit" class="btn btn-success w-100">
@@ -180,31 +201,37 @@
 
   <!-- Rodapé -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-about">
-        <h3>Sobre Nós</h3>
-        <p>
-          Somos a UnityEvents, uma plataforma que conecta pessoas e ideias por
-          meio de eventos únicos. Simplificamos a criação e gestão de
-          experiências, inspirando organizadores e participantes a unir
-          comunidades e criar memórias marcantes.
-        </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h3>Sobre Nós</h3>
+          <p>
+            Somos a UnityEvents, uma plataforma que conecta pessoas e ideias por
+            meio de eventos únicos. Simplificamos a criação e gestão de
+            experiências, inspirando organizadores e participantes a unir
+            comunidades e criar memórias marcantes.
+          </p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h3>Links Úteis</h3>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Sobre</a></li>
+            <li><a href="#" class="text-white">Fale Conosco</a></li>
+            <li><a href="#" class="text-white">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3 social-media" >
+          <h3>Redes Sociais</h3>
+          <div class="social-icons">
+            <a href="#" class="text-white me-2"><i class="fa-brands fa-facebook fa-2xl"></i></a>
+            <a href="#" class="text-white me-2"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a>
+            <a href="#" class="text-white"><i class="fa-brands fa-instagram fa-2xl"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <h3>Links Úteis</h3>
-        <a href="#">Sobre</a>
-        <a href="#">Fale Conosco</a>
-        <a href="#">Política de Privacidade</a>
+      <div class="text-center mt-3 border-top border-dark pt-3"></div>
+        <p>© 2025 UnityEvents. Todos os direitos reservados.</p>
       </div>
-      <div class="footer-social">
-        <h3>Redes Sociais</h3>
-        <a href="#"><i class="fa-brands fa-facebook fa-2xl"></i></a>
-        <a href="#"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram fa-2xl"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 UnityEvents. Todos os direitos reservados.</p>
     </div>
   </footer>
 
